@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\api\UnitKnowledgeController;
 use App\Http\Controllers\api\NoteController;
+use App\Http\Controllers\api\ImageController;
 use App\Http\Controllers\api\auth\AuthController;
 
 /*
@@ -58,5 +59,11 @@ Route::middleware("auth:api")->prefix("/unit_knowledge")->group( function() {
 Route::prefix("/note")->group(function() {
 
     Route::middleware("auth:api")->post('/create', [NoteController::class, "save"]);
+
+});
+
+Route::prefix("/image")->group(function() {
+
+    Route::post('/save', [ImageController::class, "save"]);
 
 });
